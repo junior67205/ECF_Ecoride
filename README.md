@@ -1,61 +1,142 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ECF Ecoride - Application de Covoiturage
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description
 
-## About Laravel
+Ecoride est une application de covoiturage permettant aux utilisateurs de proposer et de participer à des trajets en voiture partagée.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prérequis
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   PHP 8.1 ou supérieur
+-   Composer
+-   MySQL
+-   Node.js et NPM
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. Cloner le repository
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+git clone [URL_DU_REPO]
+cd ECF_Ecoride
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Installer les dépendances PHP
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+composer install
+```
 
-## Laravel Sponsors
+3. Installer les dépendances JavaScript
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+npm install
+```
 
-### Premium Partners
+4. Copier le fichier d'environnement
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+cp .env.example .env
+```
 
-## Contributing
+5. Configurer la base de données dans le fichier `.env`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ecf_ecoride
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+6. Générer la clé d'application
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+7. Créer la base de données et exécuter les migrations
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate:fresh
+```
 
-## License
+8. Lancer le serveur de développement
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan serve
+```
+
+9. Dans un autre terminal, lancer le serveur de développement pour les assets
+
+```bash
+npm run dev
+```
+
+## Structure de la Base de Données
+
+### Tables Principales
+
+-   `users` : Utilisateurs de l'application
+-   `marque` : Marques de voitures
+-   `voiture` : Véhicules des utilisateurs
+-   `covoiturage` : Trajets proposés
+-   `option_covoiturage` : Options disponibles pour les covoiturages
+-   `avis` : Avis des utilisateurs
+-   `role` : Rôles des utilisateurs
+
+### Relations
+
+-   Un utilisateur peut gérer plusieurs voitures (1,n)
+-   Une voiture appartient à une marque (1,1)
+-   Un covoiturage utilise une voiture (1,1)
+-   Un covoiturage peut avoir plusieurs options (0,n)
+-   Un utilisateur peut participer à plusieurs covoiturages (0,n)
+-   Un utilisateur peut avoir plusieurs rôles (1,n)
+-   Un utilisateur peut donner/recevoir plusieurs avis (0,n)
+
+## Fonctionnalités
+
+### Utilisateurs
+
+-   Inscription/Connexion
+-   Gestion du profil
+-   Attribution de rôles
+
+### Voitures
+
+-   Ajout/Modification/Suppression de voitures
+-   Association à une marque
+-   Gestion des informations techniques
+
+### Covoiturage
+
+-   Création de trajets
+-   Recherche de trajets
+-   Réservation de places
+-   Gestion des options
+
+### Avis
+
+-   Donner un avis sur un trajet
+-   Noter un utilisateur
+-   Consulter les avis reçus
+
+## Rôles Disponibles
+
+-   Administrateur
+-   Employé
+-   Conducteur
+-   Passager
+-   Conducteur & passager
+
+## Sécurité
+
+-   Authentification Laravel
+-   Validation des données
+-   Protection CSRF
+-   Gestion des permissions par rôle
+
+## Support
+
+Pour toute question ou problème, veuillez créer une issue sur le repository GitHub.

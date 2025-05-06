@@ -1,0 +1,43 @@
+/* Styles pour la section hero */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url("../../public/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Styles pour les inputs de recherche */
+.search-input {
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour la navbar */
+#navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#navMenu {
+    display: none;
+}
+
+#navMenu.active {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    #navMenu {
+        display: flex;
+        transform: none !important;
+    }
+}
