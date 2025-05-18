@@ -6,12 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gestion du menu mobile
     menuButton.addEventListener("click", () => {
         navMenu.classList.add("active");
-        navMenu.classList.remove("-translate-x-full");
     });
 
     closeMenu.addEventListener("click", () => {
         navMenu.classList.remove("active");
-        navMenu.classList.add("-translate-x-full");
     });
 
     // Fermer le menu en cliquant sur un lien
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.forEach((link) => {
         link.addEventListener("click", () => {
             navMenu.classList.remove("active");
-            navMenu.classList.add("-translate-x-full");
         });
     });
 });

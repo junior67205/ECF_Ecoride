@@ -3,11 +3,18 @@
 @section('title', 'Covoiturage')
 
 @section('content')
-<div class="container max-w-4xl px-4 py-12 pt-20 mx-auto">
-    <h1 class="mb-8 text-4xl font-bold text-emerald-700">Covoiturage</h1>
-    <p class="mb-6 text-gray-700">
-        Retrouvez ici toutes les informations sur le covoiturage, les trajets disponibles et comment proposer ou réserver un trajet.
-    </p>
-    <!-- Tu pourras ajouter ici la liste des trajets, un formulaire de recherche, etc. -->
-</div>
+    <!-- Formulaire de recherche -->
+    <x-covoiturage.search-form />
+
+    <!-- Résultats de recherche (uniquement si une recherche a été effectuée) -->
+    @if(request()->isMethod('post'))
+        @if(isset($covoiturages) && $covoiturages->count() > 0)
+            <x-covoiturage.results-list :covoiturages="$covoiturages" />
+        @elseif(isset($autresCovoiturages) && $autresCovoiturages->count() > 0)
+            <x-covoiturage.no-results :showAlternative="true" />
+            <x-covoiturage.results-list :covoiturages="$autresCovoiturages" title="Autres covoiturages disponibles" />
+        @else
+            <x-covoiturage.no-results />
+        @endif
+    @endif
 @endsection 

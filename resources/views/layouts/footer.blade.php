@@ -1,6 +1,9 @@
 {{-- 
     Footer élégant et responsive pour Ecoride
 --}}
+<!-- =====================
+     PIED DE PAGE
+====================== -->
 <footer class="py-10 text-white bg-gray-900">
     <div class="container flex flex-col items-center gap-8 mx-auto md:flex-row md:justify-between md:items-start">
         {{-- Logo et nom --}}

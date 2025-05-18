@@ -8,11 +8,12 @@
 @endpush
 
 @section('content')
-    <main class="flex flex-col flex-1 pt-20">
-        @include('components.home.hero')
-        @include('components.home.voiture')
-        @include('components.home.presentation')
-    </main>
+    <!-- =====================
+         PAGE ACCUEIL
+    ====================== -->
+    @include('components.home.hero')
+    @include('components.home.voiture')
+    @include('components.home.presentation')
 @endsection
 
 @push('scripts')

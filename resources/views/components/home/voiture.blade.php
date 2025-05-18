@@ -1,3 +1,6 @@
+<!-- =====================
+     SECTION VOITURE ACCUEIL
+====================== -->
 {{-- Composant Voiture : section "Vous avez une voiture ?" sur la page d'accueil --}}
 <section class="relative py-24 overflow-hidden bg-emerald-900">
     <div class="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>

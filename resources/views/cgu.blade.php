@@ -3,6 +3,9 @@
 @section('title', 'Conditions Générales d’Utilisation')
 
 @section('content')
+<!-- =====================
+     PAGE CONDITIONS GÉNÉRALES D'UTILISATION
+====================== -->
 <div class="container max-w-3xl px-4 py-12 pt-20 mx-auto">
     <h1 class="mb-8 text-4xl font-bold text-emerald-700">Conditions Générales d’Utilisation</h1>
 

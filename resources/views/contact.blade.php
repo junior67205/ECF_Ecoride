@@ -8,7 +8,10 @@
 @section('title', 'Contact')
 
 @section('content')
-<div class="container max-w-3xl px-4 py-12 mx-auto pt-20">
+<!-- =====================
+     PAGE CONTACT
+====================== -->
+<div class="container max-w-3xl px-4 py-12 pt-20 mx-auto">
     <h1 class="mb-8 text-4xl font-bold text-emerald-700">Contact</h1>
     <p class="mb-6 text-gray-700">
         Pour toute question, suggestion ou demande d'information, vous pouvez nous contacter à l'adresse suivante :

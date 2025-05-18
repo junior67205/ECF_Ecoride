@@ -62,4 +62,8 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
+
+<!-- =====================
+     SECTION PRÉSENTATION ACCUEIL
+====================== --> 
